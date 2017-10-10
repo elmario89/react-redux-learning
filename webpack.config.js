@@ -4,6 +4,7 @@ let webpack = require('webpack');
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
 	entry: [
+        'babel-polyfill',
 	    'react-hot-loader/patch',
 		'webpack-hot-middleware/client',
 		'./src/index'
@@ -22,12 +23,16 @@ module.exports = {
             {
                 enforce: "pre",
                 test: /\.js$/,
-                exclude: /node_modules/,
+                exclude: [
+                    path.resolve(__dirname, "node_modules"),
+                ],
                 loader: "eslint-loader"
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
+                test: /\.jsx?$/,
+                exclude: [
+                    path.resolve(__dirname, "node_modules"),
+                ],
                 loader: "babel-loader"
             }
         ]
