@@ -1,5 +1,5 @@
-var path = require('path');
-var webpack = require('webpack');
+let path = require('path');
+let webpack = require('webpack');
 
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
@@ -18,14 +18,18 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
-		rules: [{
-			test: /\.js$/,
-            include: [
-                path.resolve(__dirname, "src")
-            ],
-			use: [
-				'babel-loader'
-			]
-		}]
+		rules: [
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "eslint-loader"
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
 	}
 };
