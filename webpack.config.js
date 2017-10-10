@@ -4,6 +4,7 @@ var webpack = require('webpack');
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
 	entry: [
+	    'react-hot-loader/patch',
 		'webpack-hot-middleware/client',
 		'./src/index'
 	],
@@ -17,14 +18,14 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	module: {
-		loaders: [
-			{
-				loaders: ['babel-loader'],
-				include: [
-					path.resolve(__dirname, "src")
-				],
-				test: /\.js$/
-			}
-		]
+		rules: [{
+			test: /\.js$/,
+            include: [
+                path.resolve(__dirname, "src")
+            ],
+			use: [
+				'babel-loader'
+			]
+		}]
 	}
 };
