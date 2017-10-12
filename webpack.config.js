@@ -1,3 +1,4 @@
+let NpmInstallPlugin = require('npm-install-webpack-plugin');
 let path = require('path');
 let webpack = require('webpack');
 
@@ -16,7 +17,8 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.optimize.OccurrenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
+        new NpmInstallPlugin()
 	],
 	module: {
 		rules: [
