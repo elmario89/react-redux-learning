@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import User from '../components/User'
+import Page from '../components/Page'
 
 class App extends Component {
     render() {
-        const { name, surname, age } = this.props.data.user
-        const { year, photos} = this.props.data.page
+        const { user, page } = this.props
 
         return <div>
-                    Hello, {name} {surname}, from planet Earth!!
-                    <br/>
-                    You are {age} old!
-                    <br/>
-                    You have {photos.length} photos in {year} year
-               </div>
+            <User {...user} />
+            <Page {...page} />
+        </div>
     }
 }
 
 function mapStateToProps (state) {
     return {
-        data: state
+        page: state.page,
+        user: state.user
     }
 }
 
