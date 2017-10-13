@@ -3,18 +3,19 @@ import PropTypes from 'prop-types'
 
 export default class Page extends Component {
     onYearBtnClick(e) {
-        console.log(this.props)
         this.props.setYear(+e.target.textContent)
     }
     render() {
         const { year, photos } = this.props
-        return <div>
+
+        return <div className='ib page'>
             <p>
-                <button onClick={::this.onYearBtnClick}>2016</button>
-                <button onClick={::this.onYearBtnClick}>2015</button>
-                <button onClick={::this.onYearBtnClick}>2014</button>
+                <button className='btn' onClick={::this.onYearBtnClick}>2016</button>{' '}
+                <button className='btn' onClick={::this.onYearBtnClick}>2015</button>{' '}
+                <button className='btn' onClick={::this.onYearBtnClick}>2014</button>
             </p>
-            You have {photos.length} photos in {year} year!
+            <h3>{year} год</h3>
+            <p>You have {photos.length} photos in {year} year!</p>
         </div>
     }
 }

@@ -5,10 +5,10 @@ export default class User extends Component {
     render() {
         const { name, surname, age } = this.props
 
-        return <div>
-            Hello, {name} {surname}, from planet Earth!!
+        return <div className='ib user'>
+            <p>Hello, {name} {surname}, from planet Earth!!</p>
             <br/>
-            You are {age} old!!
+            <p>You are {age} old!!</p>
         </div>
     }
 }

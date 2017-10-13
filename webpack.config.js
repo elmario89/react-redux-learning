@@ -1,6 +1,8 @@
 let NpmInstallPlugin = require('npm-install-webpack-plugin');
 let path = require('path');
 let webpack = require('webpack');
+let autoprefixer = require('autoprefixer');
+let precss = require('precss');
 
 module.exports = {
 	devtool: 'cheap-module-eval-source-map',
@@ -36,6 +38,13 @@ module.exports = {
                     path.resolve(__dirname, "node_modules"),
                 ],
                 loader: "babel-loader"
+            },
+            {
+                test: /\.css?$/,
+                exclude: [
+                    path.resolve(__dirname, "node_modules"),
+                ],
+                loader: "style-loader!css-loader!postcss-loader"
             }
         ]
 	}

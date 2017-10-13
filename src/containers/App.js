@@ -10,7 +10,7 @@ class App extends Component {
         const { user, page } = this.props
         const { setYear } = this.props.pageActions
 
-        return <div>
+        return <div className='row'>
             <User {...user} />
             <Page {...page} setYear={setYear} />
         </div>
