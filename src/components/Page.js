@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 
 export default class Page extends Component {
     onYearBtnClick(e) {
+        console.log(this.props)
         this.props.getSreens(+e.target.textContent)
+    }
+    componentWillMount() {
+        console.log('component has mounted')
     }
     render() {
         const { item, photos, fetching } = this.props

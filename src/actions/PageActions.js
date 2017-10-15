@@ -1,4 +1,4 @@
-import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from '../constants/Page'
+import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS, TAP_URL } from '../constants/Page'
 
 export function getScreens(item) {
     return (dispatch) => {
@@ -7,20 +7,22 @@ export function getScreens(item) {
             payload: item
         })
 
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'http://api.tappawards.com/api/v1/apps?_fields=items(screens)&limit=8&skip=0', false);
-        xhr.send();
+        let url = `${TAP_URL}/apps?_fields=items(screens)&limit=8&skip=0`
 
-        if (xhr.status != 200) {
-            console.log(xhr.status, xhr.statusText);
-        } else {
-            const response = JSON.parse(xhr.responseText)
-            const photos = response.result.items[item].screens
-
-            dispatch({
-                type: GET_SCREENS_SUCCESS,
-                payload: photos
+        fetch(url)
+            .then(function(response) {
+                return response.json()
             })
-        }
+            .then(function(response) {
+                const photos = response.result.items[item].screens
+
+                dispatch({
+                    type: GET_SCREENS_SUCCESS,
+                    payload: photos
+                })
+            })
+            .catch(function(error) {
+                console.log('error', error)
+            })
     }
 }
