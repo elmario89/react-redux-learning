@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 export default class AppsList extends Component {
+    componentWillMount() {
+        console.log('br', this.props)
+        this.props.getApps()
+    }
     render() {
         const { apps } = this.props
 
@@ -13,7 +17,7 @@ export default class AppsList extends Component {
         // }
 
         return (
-            <span>{apps.toString()}</span>
+            <div className='apps-list'>{apps.toString()}</div>
         )
     }
 

@@ -1,20 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import AppList from './AppsList'
 
 export default class Page extends Component {
     onYearBtnClick(e) {
         this.props.getSreens(+e.target.textContent)
     }
-    componentWillMount() {
-        this.props.getApps()
-    }
     render() {
-        const { apps, item, photos, fetching } = this.props
+        const { item, photos, fetching } = this.props
 
         return <div className='ib page'>
-            { fetching ? <span>Names loading</span> : <AppList apps={apps} getApps={this.props.getApps} /> }
-
             <p>
                 <button disabled={fetching} className='btn' onClick={::this.onYearBtnClick}>1</button>{' '}
                 <button disabled={fetching} className='btn' onClick={::this.onYearBtnClick}>2</button>{' '}
