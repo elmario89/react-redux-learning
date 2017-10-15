@@ -1,11 +1,10 @@
-import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from '../constants/Page'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from '../constants/AppsList'
 import { TAP_URL } from '../constants/Api'
 
-export function getScreens(item) {
+export function getApps() {
     return (dispatch) => {
         dispatch({
-            type: GET_SCREENS_REQUEST,
-            payload: item
+            type: GET_APPS_REQUEST
         })
 
         let url = `${TAP_URL}/apps?_fields=items(name,screens,video)&limit=8&skip=0`
@@ -15,11 +14,11 @@ export function getScreens(item) {
                 return response.json()
             })
             .then(function(response) {
-                const photos = response.result.items[item].screens
+                const apps = response.result.items
 
                 dispatch({
-                    type: GET_SCREENS_SUCCESS,
-                    payload: photos
+                    type: GET_APPS_SUCCESS,
+                    payload: apps
                 })
             })
             .catch(function(error) {

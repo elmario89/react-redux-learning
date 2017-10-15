@@ -5,12 +5,13 @@ import User from '../components/User'
 import Page from '../components/Page'
 import AppList from '../components/AppsList'
 import * as pageActions from '../actions/PageActions'
+import * as appsListActions from '../actions/AppsListActions'
 
 class App extends Component {
     render() {
-        console.log(this.props)
         const { apps, user, page } = this.props
-        const { getScreens, getApps } = this.props.pageActions
+        const { getScreens} = this.props.pageActions
+        const { getApps } = this.props.appsListActions
 
         return <div className='row'>
             <User {...user} />
@@ -30,7 +31,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        pageActions: bindActionCreators(pageActions, dispatch)
+        pageActions: bindActionCreators(pageActions, dispatch),
+        appsListActions: bindActionCreators(appsListActions, dispatch)
     }
 }
 

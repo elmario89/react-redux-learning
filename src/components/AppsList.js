@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 export default class AppsList extends Component {
     componentWillMount() {
-        console.log('br', this.props)
         this.props.getApps()
     }
     render() {

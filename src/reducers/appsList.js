@@ -1,13 +1,14 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from '../constants/Page'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from '../constants/AppsList'
 
 const initialState = {
-    apps: []
+    apps: [],
+    fetching: false
 }
 
 export default function appsList(state = initialState, action) {
     switch (action.type) {
         case GET_APPS_REQUEST:
-            return {...state, fetching: false}
+            return {...state, fetching: true}
 
         case GET_APPS_SUCCESS:
             return {...state, apps: action.payload, fetching: false}

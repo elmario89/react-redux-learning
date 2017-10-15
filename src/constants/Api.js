@@ -1,0 +1,1 @@
+export const TAP_URL = 'http://api.tappawards.com/api/v1'
