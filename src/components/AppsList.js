@@ -16,7 +16,7 @@ export default class AppsList extends Component {
         // }
 
         return (
-            <div className='apps-list'>{apps.toString()}</div>
+            <div className='apps-list'>{apps.length > 0 ? apps.toString() : 'loading'}</div>
         )
     }
 

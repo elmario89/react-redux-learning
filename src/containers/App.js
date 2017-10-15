@@ -9,6 +9,7 @@ import * as appsListActions from '../actions/AppsListActions'
 
 class App extends Component {
     render() {
+        console.log(this.props)
         const { apps, user, page } = this.props
         const { getScreens} = this.props.pageActions
         const { getApps } = this.props.appsListActions
