@@ -17,10 +17,10 @@ export default function page(state = initialState, action) {
             return {...state, photos: action.payload, fetching: false}
 
         case GET_APPS_REQUEST:
-            return {...state, appsFetching: true}
+            return {...state, fetching: true}
 
         case GET_APPS_SUCCESS:
-            return {...state, apps: action.payload, appsFetching: false}
+            return {...state, apps: action.payload, fetching: false}
 
         default:
             return state;

@@ -7,7 +7,6 @@ export default class User extends Component {
 
         return <div className='ib user'>
             <p>Hello, {name} {surname}, from planet Earth!!</p>
-            <br/>
             <p>You are {age} old!!</p>
         </div>
     }
