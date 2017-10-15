@@ -4,7 +4,8 @@ const initialState = {
     apps: [],
     item: 0,
     photos: [],
-    fetching: false
+    fetching: false,
+    appsFetching: true
 }
 
 export default function page(state = initialState, action) {
@@ -16,10 +17,10 @@ export default function page(state = initialState, action) {
             return {...state, photos: action.payload, fetching: false}
 
         case GET_APPS_REQUEST:
-            return {...state, fetching: true}
+            return {...state, appsFetching: true}
 
         case GET_APPS_SUCCESS:
-            return {...state, apps: action.payload, fetching: false}
+            return {...state, apps: action.payload, appsFetching: false}
 
         default:
             return state;
