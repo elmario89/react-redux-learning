@@ -8,11 +8,11 @@ import * as pageActions from '../actions/PageActions'
 class App extends Component {
     render() {
         const { user, page } = this.props
-        const { getScreens } = this.props.pageActions
+        const { getScreens, getApps } = this.props.pageActions
 
         return <div className='row'>
             <User {...user} />
-            <Page {...page} getSreens={getScreens} />
+            <Page {...page} getSreens={getScreens} getApps={getApps}/>
         </div>
     }
 }

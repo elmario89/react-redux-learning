@@ -1,6 +1,7 @@
-import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from '../constants/Page'
+import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS, GET_APPS_SUCCESS, GET_APPS_REQUEST } from '../constants/Page'
 
 const initialState = {
+    apps: [],
     item: 0,
     photos: [],
     fetching: false
@@ -13,6 +14,12 @@ export default function page(state = initialState, action) {
 
         case GET_SCREENS_SUCCESS:
             return {...state, photos: action.payload, fetching: false}
+
+        case GET_APPS_REQUEST:
+            return {...state, fetching: true}
+
+        case GET_APPS_SUCCESS:
+            return {...state, apps: action.payload, fetching: false}
 
         default:
             return state;
