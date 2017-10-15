@@ -1,9 +1,9 @@
-import { GET_PHOTO_REQUEST, GET_PHOTO_SUCCESS } from '../constants/Page'
+import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from '../constants/Page'
 
 export function getScreens(item) {
     return (dispatch) => {
         dispatch({
-            type: GET_PHOTO_REQUEST,
+            type: GET_SCREENS_REQUEST,
             payload: item
         })
 
@@ -17,12 +17,10 @@ export function getScreens(item) {
             const response = JSON.parse(xhr.responseText)
             const photos = response.result.items[item].screens
 
-            setTimeout(() => {
-                dispatch({
-                    type: GET_PHOTO_SUCCESS,
-                    payload: photos
-                })
-            }, 1000)
+            dispatch({
+                type: GET_SCREENS_SUCCESS,
+                payload: photos
+            })
         }
     }
 }
