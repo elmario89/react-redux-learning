@@ -1,31 +1,28 @@
 import { GET_PHOTO_REQUEST, GET_PHOTO_SUCCESS } from '../constants/Page'
 
-export function getPhotos(year) {
+export function getScreens(item) {
     return (dispatch) => {
-        const xhr = new XMLHttpRequest();
-
         dispatch({
-            type: GET_PHOTO_REQUEST
+            type: GET_PHOTO_REQUEST,
+            payload: item
         })
 
-        xhr.open('GET', 'http://api.tappawards.com/api/v1/apps?_fields=items(name,platform,developer(name,url),collaborator(name,url),screens,video,statusChangeDate,description,storeUrl,screensBgColor,rateDate,rates,winDate,isLiked,likeCount,icon,price,totalCount,permalink)&limit=8&search%5Bplatform%5D=&search%5Bstatus%5D=winners%7Cnominees&skip=0', false);
-
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://api.tappawards.com/api/v1/apps?_fields=items(screens)&limit=8&skip=0', false);
         xhr.send();
 
         if (xhr.status != 200) {
             console.log(xhr.status, xhr.statusText);
-            // dispatch({
-            //     type: GET_PHOTO_FAILURE,
-            //     payload: response.photos
-            // })
         } else {
             const response = JSON.parse(xhr.responseText)
-            const photos = response.result.items[0].screens
+            const photos = response.result.items[item].screens
 
-            dispatch({
-                type: GET_PHOTO_SUCCESS,
-                payload: photos
-            })
+            setTimeout(() => {
+                dispatch({
+                    type: GET_PHOTO_SUCCESS,
+                    payload: photos
+                })
+            }, 1000)
         }
     }
 }
