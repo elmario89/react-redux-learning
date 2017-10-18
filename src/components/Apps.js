@@ -7,9 +7,9 @@ export default class Apps extends Component {
         this.props.getApps()
     }
     render() {
-        const { apps } = this.props
+        const { apps, pageNumber } = this.props
+        console.log(this.props)
 
-        console.log(apps)
         var appsTemplate = apps.map((app) => {
             return (
                 <div key={app._id} className='apps-list-item'>
@@ -23,8 +23,7 @@ export default class Apps extends Component {
                 <div className='apps-list'>
                     {appsTemplate}
                 </div>
-                {apps.length > 0 ? <AppsGallery photos={apps[0].screens}/> : ''}
-
+                {apps.length > 0 ? <AppsGallery photos={apps[pageNumber].screens}/> : ''}
             </div>
         )
     }

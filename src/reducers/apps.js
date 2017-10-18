@@ -2,6 +2,7 @@ import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/Apps'
 
 const initialState = {
     apps: [],
+    pageNumber: 0,
     fetching: false
 }
 
