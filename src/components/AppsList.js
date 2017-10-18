@@ -8,15 +8,21 @@ export default class AppsList extends Component {
     render() {
         const { apps } = this.props
 
-        // console.log(apps)
-        // apps.map(function(item, i) {
-        //     return (
-        //         <span>test</span>
-        //     )
-        // }
+        var appsTemplate = apps.map((app) => {
+            return (
+                <div key={app._id}>
+                    <span className='apps-list'>{app.name}</span>
+                </div>
+            )
+
+        })
+
+        console.log(appsTemplate);
 
         return (
-            <div className='apps-list'>{apps.length > 0 ? apps.toString() : 'loading'}</div>
+            <div>
+                {appsTemplate}
+            </div>
         )
     }
 

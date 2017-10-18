@@ -5,6 +5,7 @@ const initialState = {
     fetching: false
 }
 
+
 export default function appsList(state = initialState, action) {
     switch (action.type) {
         case GET_APPS_REQUEST:
