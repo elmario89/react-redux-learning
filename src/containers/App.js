@@ -10,13 +10,13 @@ import * as appsListActions from 'src/actions/AppsActions'
 class App extends Component {
     render() {
         const { apps, user, page } = this.props
-        const { getScreens} = this.props.pageActions
-        const { getApps } = this.props.appsListActions
+        const { getScreens } = this.props.pageActions
+        const { getApps, changeApp } = this.props.appsListActions
 
         return <div>
             <User {...user} />
             <div className='apps-wrapper'>
-                <Apps {...apps} getApps={getApps} />
+                <Apps {...apps} getApps={getApps} changeApp={changeApp}/>
             </div>
             <Page {...page} getSreens={getScreens} />
         </div>

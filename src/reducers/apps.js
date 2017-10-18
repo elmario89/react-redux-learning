@@ -1,4 +1,4 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/Apps'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST, CHANGE_APP_SUCCESS } from 'src/constants/Apps'
 
 const initialState = {
     apps: [],
@@ -14,6 +14,9 @@ export default function apps(state = initialState, action) {
 
         case GET_APPS_SUCCESS:
             return {...state, apps: action.payload, fetching: false}
+
+        case CHANGE_APP_SUCCESS:
+            return {...state, pageNumber: action.payload, fetching: false}
 
         default:
             return state;

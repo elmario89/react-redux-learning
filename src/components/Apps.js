@@ -6,14 +6,18 @@ export default class Apps extends Component {
     componentWillMount() {
         this.props.getApps()
     }
+
+    loadScreens(index) {
+        this.props.changeApp(index)
+    }
+
     render() {
         const { apps, pageNumber } = this.props
-        console.log(this.props)
 
-        var appsTemplate = apps.map((app) => {
+        var appsTemplate = apps.map((app, index) => {
             return (
                 <div key={app._id} className='apps-list-item'>
-                    <a>{app.name}</a>
+                    <a onClick={this.loadScreens.bind(this, index)}>{app.name}</a>
                 </div>
             )
         })

@@ -1,4 +1,4 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/Apps'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST, CHANGE_APP_SUCCESS } from 'src/constants/Apps'
 import { TAP_URL } from 'src/constants/Api'
 
 export function getApps() {
@@ -24,5 +24,14 @@ export function getApps() {
             .catch(function(error) {
                 console.log('error', error)
             })
+    }
+}
+
+export function changeApp(index) {
+    return (dispatch) => {
+        dispatch({
+            type: CHANGE_APP_SUCCESS,
+            payload: index
+        })
     }
 }
