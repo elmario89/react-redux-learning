@@ -1,4 +1,4 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/AppsList'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/Apps'
 import { TAP_URL } from 'src/constants/Api'
 
 export function getApps() {

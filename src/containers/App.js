@@ -3,9 +3,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import User from 'src/components/User'
 import Page from 'src/components/Page'
-import AppList from 'src/components/apps-list/AppsList'
+import Apps from 'src/components/Apps'
 import * as pageActions from 'src/actions/PageActions'
-import * as appsListActions from 'src/actions/AppsListActions'
+import * as appsListActions from 'src/actions/AppsActions'
 
 class App extends Component {
     render() {
@@ -16,7 +16,7 @@ class App extends Component {
         return <div>
             <User {...user} />
             <div className='apps-wrapper'>
-                <AppList {...apps} getApps={getApps} />
+                <Apps {...apps} getApps={getApps} />
             </div>
             <Page {...page} getSreens={getScreens} />
         </div>
@@ -24,8 +24,9 @@ class App extends Component {
 }
 
 function mapStateToProps (state) {
+    console.log(state)
     return {
-        apps: state.appsList,
+        apps: state.apps,
         page: state.page,
         user: state.user
     }

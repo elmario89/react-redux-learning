@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 import page from './page'
 import user from './user'
-import appsList from './appsList'
+import apps from './apps'
 
 export default combineReducers({
     page,
     user,
-    appsList
+    apps
 })

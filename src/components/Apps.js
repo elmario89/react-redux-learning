@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import AppsGallery from './gallery/AppsGallery'
 
-export default class AppsList extends Component {
+export default class Apps extends Component {
     componentWillMount() {
         this.props.getApps()
     }
@@ -14,25 +15,27 @@ export default class AppsList extends Component {
                     <a>{app.name}</a>
                 </div>
             )
-
         })
 
-        console.log(appsTemplate);
-
+        // return (
+        //     <div>
+        //         <div className='apps-list'>
+        //             {appsTemplate}
+        //         </div>
+        //         <AppsGallery photos={apps[0].screens}/>
+        //     </div>
+        // )
         return (
             <div>
                 <div className='apps-list'>
                     {appsTemplate}
                 </div>
-                <span className='apps-gallery'>
-                    gallery
-                </span>
             </div>
         )
     }
 
 }
 
-AppsList.propTypes = {
+Apps.propTypes = {
     apps: PropTypes.array.isRequired
 }
