@@ -9,6 +9,7 @@ export default class Apps extends Component {
     render() {
         const { apps } = this.props
 
+        console.log(apps)
         var appsTemplate = apps.map((app) => {
             return (
                 <div key={app._id} className='apps-list-item'>
@@ -17,19 +18,13 @@ export default class Apps extends Component {
             )
         })
 
-        // return (
-        //     <div>
-        //         <div className='apps-list'>
-        //             {appsTemplate}
-        //         </div>
-        //         <AppsGallery photos={apps[0].screens}/>
-        //     </div>
-        // )
         return (
             <div>
                 <div className='apps-list'>
                     {appsTemplate}
                 </div>
+                {apps.length > 0 ? <AppsGallery photos={apps[0].screens}/> : ''}
+
             </div>
         )
     }
