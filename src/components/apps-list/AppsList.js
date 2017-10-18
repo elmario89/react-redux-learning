@@ -10,8 +10,8 @@ export default class AppsList extends Component {
 
         var appsTemplate = apps.map((app) => {
             return (
-                <div key={app._id}>
-                    <span className='apps-list'>{app.name}</span>
+                <div key={app._id} className='apps-list-item'>
+                    <a>{app.name}</a>
                 </div>
             )
 
@@ -21,7 +21,12 @@ export default class AppsList extends Component {
 
         return (
             <div>
-                {appsTemplate}
+                <div className='apps-list'>
+                    {appsTemplate}
+                </div>
+                <span className='apps-gallery'>
+                    gallery
+                </span>
             </div>
         )
     }

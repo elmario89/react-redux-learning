@@ -1,5 +1,5 @@
-import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from '../constants/Page'
-import { TAP_URL } from '../constants/Api'
+import { GET_SCREENS_REQUEST, GET_SCREENS_SUCCESS } from 'src/constants/Page'
+import { TAP_URL } from 'src/constants/Api'
 
 export function getScreens(item) {
     return (dispatch) => {

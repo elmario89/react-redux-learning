@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import User from '../components/User'
-import Page from '../components/Page'
-import AppList from '../components/AppsList'
-import * as pageActions from '../actions/PageActions'
-import * as appsListActions from '../actions/AppsListActions'
+import User from 'src/components/User'
+import Page from 'src/components/Page'
+import AppList from 'src/components/apps-list/AppsList'
+import * as pageActions from 'src/actions/PageActions'
+import * as appsListActions from 'src/actions/AppsListActions'
 
 class App extends Component {
     render() {
@@ -13,10 +13,11 @@ class App extends Component {
         const { getScreens} = this.props.pageActions
         const { getApps } = this.props.appsListActions
 
-        console.log(apps)
-        return <div className='row'>
+        return <div>
             <User {...user} />
-            <AppList {...apps} getApps={getApps} />
+            <div className='apps-wrapper'>
+                <AppList {...apps} getApps={getApps} />
+            </div>
             <Page {...page} getSreens={getScreens} />
         </div>
     }

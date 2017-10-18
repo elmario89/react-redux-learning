@@ -20,6 +20,12 @@ module.exports = {
 		filename: 'bundle.js',
 		publicPath: '/static/'
 	},
+    resolve: {
+	    alias: {
+            src: path.resolve(__dirname, 'src/')
+        },
+        extensions: ['.js']
+    },
 	module: {
 		rules: [
             {

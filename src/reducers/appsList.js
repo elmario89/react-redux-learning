@@ -1,4 +1,4 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from '../constants/AppsList'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST } from 'src/constants/AppsList'
 
 const initialState = {
     apps: [],
