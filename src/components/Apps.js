@@ -16,7 +16,7 @@ export default class Apps extends Component {
 
         var appsTemplate = apps.map((app, index) => {
             return (
-                <div key={app._id} className='apps-list-item'>
+                <div key={app._id} className={'apps-list-item ' + (index === pageNumber ? '-active' : '')}>
                     <a onClick={this.loadScreens.bind(this, index)}>{app.name}</a>
                 </div>
             )
