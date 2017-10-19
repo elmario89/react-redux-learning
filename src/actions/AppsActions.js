@@ -1,13 +1,15 @@
 import { GET_APPS_SUCCESS, GET_APPS_REQUEST, CHANGE_APP_SUCCESS } from 'src/constants/Apps'
 import { TAP_URL } from 'src/constants/Api'
 
-export function getApps() {
+export function getApps(page) {
     return (dispatch) => {
         dispatch({
             type: GET_APPS_REQUEST
         })
 
-        let url = `${TAP_URL}/apps?_fields=items(name,screens,video)&limit=8&skip=0`
+        let skip = (8 * (page - 1))
+
+        let url = `${TAP_URL}/apps?_fields=items(name,screens,video)&limit=8&skip=${skip}`
 
         fetch(url)
             .then(function(response) {

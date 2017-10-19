@@ -1,0 +1,41 @@
+$color-base: #fff
+
+.paginator
+  padding: 20px 0
+  &-item 
+    position: relative
+    display: inline-block
+    padding: 0 13px
+    height: 25px
+    min-width: 20px
+
+    color: $color-base
+    background: #119897
+    border-right: 1px #F2F2F2 solid
+
+    font-size: 15px
+    font-weight: 300
+    letter-spacing: 0.94px
+    line-height: 25px
+    text-align: center
+
+    transition: background 0.1s
+
+    &:hover, &:focus
+      background: #217575
+      cursor: pointer
+      text-decoration: none
+
+    &:last-child
+      border: 0
+
+    &.-prev, &.-next 
+      font-size: 10px
+
+    &.-active 
+      font-weight: bold
+      text-decoration: line-through
+
+    &.-disabled 
+      opacity: 0.5
+      pointer-events: none

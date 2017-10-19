@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import AppsGallery from './gallery/AppsGallery'
+import Paginator from './gallery/Paginator'
 
 export default class Apps extends Component {
     componentWillMount() {
-        this.props.getApps()
+        this.props.getApps(0)
     }
 
     loadScreens(index) {
         this.props.changeApp(index)
+    }
+
+    paginate(page) {
+        this.props.getApps(page)
     }
 
     render() {
@@ -28,6 +33,8 @@ export default class Apps extends Component {
                     {appsTemplate}
                 </div>
                 {apps.length > 0 ? <AppsGallery photos={apps[pageNumber].screens}/> : ''}
+
+                <Paginator/>
             </div>
         )
     }
