@@ -1,4 +1,4 @@
-import { GET_APPS_SUCCESS, GET_APPS_REQUEST, CHANGE_APP_SUCCESS } from 'src/constants/Apps'
+import { GET_APPS_SUCCESS, GET_APPS_REQUEST, CHANGE_APP_SUCCESS, GET_TOTALCOUNT_SUCCESS } from 'src/constants/Apps'
 import { TAP_URL } from 'src/constants/Api'
 
 export function getApps(page) {
@@ -17,6 +17,12 @@ export function getApps(page) {
             })
             .then(function(response) {
                 const apps = response.result.items
+                const totalCount = response.result.totalCount
+
+                dispatch({
+                    type: GET_TOTALCOUNT_SUCCESS,
+                    payload: totalCount
+                })
 
                 dispatch({
                     type: GET_APPS_SUCCESS,

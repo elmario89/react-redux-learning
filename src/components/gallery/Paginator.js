@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 export default class Paginator extends Component {
     render() {
-        // const { photos } = this.props
-
+        const pages = Math.ceil(this.props.totalCount / 8)
+        console.log(pages)
         return (
             <div className='paginator'>
                 <a className='paginator-item -prev'> prev </a>
@@ -17,9 +17,8 @@ export default class Paginator extends Component {
             </div>
         )
     }
-
 }
 
-// AppsGallery.propTypes = {
-//     photos: PropTypes.array.isRequired
-// }
+Paginator.propTypes = {
+    totalCount: PropTypes.number.isRequired
+}

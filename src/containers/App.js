@@ -26,6 +26,7 @@ class App extends Component {
 function mapStateToProps (state) {
     return {
         apps: state.apps,
+        totalCount: state.totalCount,
         page: state.page,
         user: state.user
     }
